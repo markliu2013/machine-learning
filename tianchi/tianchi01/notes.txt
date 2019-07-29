@@ -1,0 +1,112 @@
+https://tianchi.aliyun.com/competition/entrance/231522/introduction?spm=5176.12281925.0.0.77f471370LzkAc
+
+user_id, item_id,
+前1天的 浏览次数，是否收藏，是否加入购物车，是否购买
+前2天的 浏览次数，是否收藏，是否加入购物车，是否购买
+前3天的 浏览次数，是否收藏，是否加入购物车，是否购买
+前4天的 浏览次数，是否收藏，是否加入购物车，是否购买
+前5天的 浏览次数，是否收藏，是否加入购物车，是否购买
+
+1. 根据P表里的商品信息，对UI表进行过滤 2084859
+create table t3 as (
+    SELECT user_id, item_id, behavior_type, item_category, time
+    FROM t1
+    WHERE EXISTS (SELECT *
+                  FROM t2
+                  WHERE t1.item_id = t2.item_id
+                            AND t1.item_category = t2.item_category)
+)
+
+CREATE TABLE t4 AS
+  (SELECT user_id,
+          item_id,
+          behavior_type,
+          item_category,
+          TIME
+   FROM   t1
+   WHERE  item_id IN (SELECT item_id
+                      FROM   t2))
+
+2. 会不会有人一天买多次（同一个商品）？
+select user_id, item_id, count(*)
+from t3
+WHERE (time BETWEEN TO_DATE('2014-12-18', 'YYYY-MM-DD') AND TO_DATE('2014-12-18 23:59:59', 'YYYY-MM-DD HH24:MI:SS'))
+      and behavior_type=4
+group by user_id, item_id
+having count(*) > 1
+order by count(*) desc;
+
+3. 会不会有人昨天买了今天又买（同一个商品）？
+SELECT *
+FROM t3 t1
+WHERE EXISTS (SELECT *
+              FROM (
+                    -- 子查询 16号买了商品的人
+                    select user_id, item_id
+                    from t3
+                    WHERE (time BETWEEN TO_DATE('2014-12-16', 'YYYY-MM-DD') AND TO_DATE('2014-12-16 23:59:59', 'YYYY-MM-DD HH24:MI:SS'))
+                          and behavior_type=4
+                    group by user_id, item_id
+              ) t2
+              WHERE t1.item_id = t2.item_id
+                        AND t1.user_id = t2.user_id)
+-- 17号又买了同一件商品
+and (time BETWEEN TO_DATE('2014-12-17', 'YYYY-MM-DD') AND TO_DATE('2014-12-17 23:59:59', 'YYYY-MM-DD HH24:MI:SS'))
+and  behavior_type=4
+
+4. 加入购物车之后，购买的数量
+SELECT count(*)
+FROM t3 t1
+WHERE EXISTS (SELECT *
+              FROM (
+                    -- 子查询 16号behavior_type了商品的人
+                    select user_id, item_id
+                    from t3
+                    WHERE (time BETWEEN TO_DATE('2014-12-16', 'YYYY-MM-DD') AND TO_DATE('2014-12-16 23:59:59', 'YYYY-MM-DD HH24:MI:SS'))
+                          and behavior_type=3 -- 修改值分别求浏览，收藏，购物车
+                    group by user_id, item_id
+              ) t2
+              WHERE t1.item_id = t2.item_id
+                        AND t1.user_id = t2.user_id)
+-- 17号又买了同一件商品
+and (time BETWEEN TO_DATE('2014-12-17', 'YYYY-MM-DD') AND TO_DATE('2014-12-17 23:59:59', 'YYYY-MM-DD HH24:MI:SS'))
+and  behavior_type=4
+
+5. 有很多昨天收藏了，今天又收藏； 有很多昨天加了购物车，今天又加了购物车。说明有用户收藏之后又取消，加购物又删除。
+
+6. 求某个用户的点击购买转化率， 商品的点击购买转化率
+
+7. 查询某一天用户的behave
+select user_id, item_id,
+       count(
+            case when (behavior_type = 1 and (time BETWEEN TO_DATE('2014-12-16', 'YYYY-MM-DD') AND TO_DATE('2014-12-16 23:59:59', 'YYYY-MM-DD HH24:MI:SS'))) then 1
+            else null end) count_view_1,
+       count(
+            case when (behavior_type = 2 and (time BETWEEN TO_DATE('2014-12-16', 'YYYY-MM-DD') AND TO_DATE('2014-12-16 23:59:59', 'YYYY-MM-DD HH24:MI:SS'))) then 1
+            else null end) count_fav_1
+from t3
+group by user_id, item_id
+
+select user_id, item_id, count(case when (behavior_type = 1 and (time BETWEEN TO_DATE('2014-12-16', 'YYYY-MM-DD') AND TO_DATE('2014-12-16 23:59:59', 'YYYY-MM-DD HH24:MI:SS'))) then 1 else null end) count_view_1,count(case when (behavior_type = 2 and (time BETWEEN TO_DATE('2014-12-16', 'YYYY-MM-DD') AND TO_DATE('2014-12-16 23:59:59', 'YYYY-MM-DD HH24:MI:SS'))) then 1 else null end) count_fav_1 from t3 group by user_id, item_id
+
+
+8, 查询某一天用户是否购买？
+SELECT user_id,
+       item_id,
+       case when (
+           Count(CASE
+                   WHEN ( behavior_type = 4
+                          AND ( TIME BETWEEN To_date('2014-12-16', 'YYYY-MM-DD') AND
+                                                   To_date('2014-12-16 23:59:59',
+                                                   'YYYY-MM-DD HH24:MI:SS')
+                              ) ) THEN 1
+                   ELSE NULL
+                 END)
+       ) > 0 then 1 ELSE 0  end  is_buye
+
+FROM   t3
+GROUP  BY user_id,
+          item_id
+ORDER  BY is_buye DESC
+
+9. 考察某一天用户购买的比例。（有多少用户购买了）

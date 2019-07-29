@@ -1,0 +1,14 @@
+https://tianchi.aliyun.com/competition/entrance/231718/introduction?spm=5176.12281925.0.0.77f471370LzkAc
+
+1. irank数据不准？有时间是相同的。
+select to_char(create_order_time, 'YYYY-MM-DD HH24:MI:SS') create_order_time_s, irank from an_train where buyer_admin_id=6869751 order by create_order_time
+
+训练数据 xx国家 记录数
+select count(*) from an_train where buyer_country_id='xx'
+训练数据 xx国家 买家数
+select count(distinct buyer_admin_id) from an_train where buyer_country_id='xx'
+
+
+商品属性表 其中价格的加密函数f(x)为一个单调增函数。分析商品的价格
+select item_price, count(*) from item_arr group by item_price order by item_price desc;
+

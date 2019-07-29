@@ -1,0 +1,8 @@
+tensorflow
+pandas
+sklearn
+matplotlib
+numpy
+seaborn
+pyspark
+pymysql
