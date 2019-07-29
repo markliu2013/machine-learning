@@ -1,5 +1,5 @@
 tensorflow-env/
-toturial_projects/mnist/data
+data/
 *.csv
 
 # Byte-compiled / optimized / DLL files
