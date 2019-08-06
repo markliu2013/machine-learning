@@ -30,3 +30,9 @@
 * [Kaggle_Titanic生存预测 -- 详细流程吐血梳理](https://blog.csdn.net/Koala_Tree/article/details/78725881)
 * [天池新人实战赛之[离线赛]——参赛笔记](https://www.jianshu.com/p/36df85802f8d)
 * [天池初体验——新人实战赛之[离线赛]](https://blog.csdn.net/wy250229163/article/details/53046006)
+
+# Collaborative Filtering(协同过滤)
+* [超级详细的协同过滤推荐系统+完整Python实现及结果](https://blog.csdn.net/qq_25948717/article/details/81839463)
+* [Collaborative Filtering(协同过滤)算法详解](https://www.cnblogs.com/ECJTUACM-873284962/p/8729010.html)
+
+

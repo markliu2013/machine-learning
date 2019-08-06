@@ -1,5 +1,3 @@
-https://tianchi.aliyun.com/competition/entrance/231718/introduction?spm=5176.12281925.0.0.77f471370LzkAc
-
 1. irank数据不准？有时间是相同的。
 select to_char(create_order_time, 'YYYY-MM-DD HH24:MI:SS') create_order_time_s, irank from an_train where buyer_admin_id=6869751 order by create_order_time
 

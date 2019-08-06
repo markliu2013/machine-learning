@@ -1,0 +1,11 @@
+https://tianchi.aliyun.com/competition/entrance/231718/introduction?spm=5176.12281925.0.0.77f471370LzkAc
+https://tianchi.aliyun.com/notebook-ai/detail?spm=5176.12586969.1002.6.74041048BnPsfH&postId=66312
+
+https://www.cnblogs.com/ECJTUACM-873284962/p/8729010.html
+https://blog.csdn.net/qq_25948717/article/details/81839463
+
+
+相关系数，Pearson相关系数，协方差
+
+
+https://blog.csdn.net/program_developer/article/details/80632779
