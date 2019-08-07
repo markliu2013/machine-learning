@@ -35,4 +35,6 @@
 * [超级详细的协同过滤推荐系统+完整Python实现及结果](https://blog.csdn.net/qq_25948717/article/details/81839463)
 * [Collaborative Filtering(协同过滤)算法详解](https://www.cnblogs.com/ECJTUACM-873284962/p/8729010.html)
 
+# Pandas
+* [Pandas与SQL的查询语句对比](https://www.jianshu.com/p/ac7ddc076fa2)
 
