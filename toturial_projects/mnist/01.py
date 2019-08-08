@@ -1,7 +1,6 @@
 import os
 import struct
 import numpy as np
-import matplotlib.pyplot as plt
 
 
 def load_mnist(path, kind='train'):
