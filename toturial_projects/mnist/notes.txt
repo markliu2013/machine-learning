@@ -4,3 +4,5 @@ http://yann.lecun.com/exdb/mnist/
 
 https://blog.csdn.net/simple_the_best/article/details/75267863
 https://www.kaggle.com/kakauandme/tensorflow-deep-nn
+https://blog.csdn.net/weixin_39381833/article/details/80805268
+https://www.cnblogs.com/roboai/p/7792954.html
