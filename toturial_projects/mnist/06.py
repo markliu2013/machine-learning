@@ -27,6 +27,7 @@ test_images = df_test
 model = keras.Sequential([
     keras.layers.Flatten(input_shape=(784,)),
     keras.layers.Dense(128, activation='relu'),
+    keras.layers.Dense(32, activation='relu'),
     keras.layers.Dense(10, activation='softmax')
 ])
 

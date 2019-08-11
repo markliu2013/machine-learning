@@ -1,7 +1,5 @@
 import pandas as pd
 from sklearn.linear_model import LogisticRegression
-import warnings
-warnings.filterwarnings('ignore')
 
 data_path = 'data/'
 df_train = pd.read_csv(data_path + "train.csv")
