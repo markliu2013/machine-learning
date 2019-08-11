@@ -1,11 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 
-
 import random
-from numpy import *
-from functools import reduce
-
 
 def sigmoid(inX):
     return 1.0 / (1 + exp(-inX))
@@ -307,7 +303,7 @@ if __name__ == '__main__':
     # gradient_check_test()
     # 设置神经网络初始化参数，初始化神经网络
     net = Network([6, 4, 2])
-    print(net)
+    # print(net)
     train(net)
-    net.dump()
+    #net.dump()
     # correct_ratio(net)

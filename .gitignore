@@ -2,6 +2,7 @@ tensorflow-env/
 data/
 *.csv
 *.ipynb
+*.gz
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
