@@ -3,8 +3,7 @@
 
 
 import random
-from numpy import *
-
+from math import exp
 
 def sigmoid(inX):
     return 1.0 / (1 + exp(-inX))
