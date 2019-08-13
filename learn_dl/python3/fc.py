@@ -228,3 +228,5 @@ def gradient_check():
     net = Network([8, 3, 8])
     net.gradient_check(data_set[0], labels[0])
     return net
+
+test()
