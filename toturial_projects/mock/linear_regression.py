@@ -74,22 +74,3 @@ class LinearRegression:
         X_bais = np.hstack((X, np.ones((len(X), 1))))
         # np.fromiter将map后的结果转为1-dimensional array
         return np.fromiter(map(lambda x: np.dot(x, self.weights), X_bais), dtype=np.double)
-
-
-X1 = np.array([[1], [2], [3], [4], [5]])
-y1 = np.array([4, 7, 10, 13, 16])
-
-X2 = np.array([[1], [2], [3], [4], [5]])
-y2 = np.array([2, 4, 6, 8, 10])
-
-X3 = np.array([[1, 1], [1, 2], [2, 2], [2, 3]])
-y3 = np.dot(X3, np.array([1, 2])) + 3
-
-reg = LinearRegression().fit(X1, y1)
-print(reg.predict(np.array([[9], [10]])))
-
-reg = reg.fit(X2, y2)
-print(reg.predict(np.array([[9], [10]])))
-
-reg = reg.fit(X3, y3)
-print(reg.predict(np.array([[3, 5]])))

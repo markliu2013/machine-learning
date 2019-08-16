@@ -1,12 +1,7 @@
 import math
 import numpy as np
 from functools import reduce
-
-def sigmoid(x):
-    sig = 1 / (1 + np.exp(-x))     # Define sigmoid function
-    sig = np.minimum(sig, 0.9999)  # Set upper bound
-    sig = np.maximum(sig, 0.0001)  # Set lower bound
-    return sig
+from utils import sigmoid
 
 class LogisticRegression:
 
@@ -74,10 +69,3 @@ class LogisticRegression:
         # return np.divide(np.sum(list(map(self._gradient_function, X, y))), len(X))
         return np.divide(reduce(lambda x, y: x + y, map(self._gradient_function, X, y)), len(X))
 
-
-from sklearn.datasets import load_iris
-X, y = load_iris(return_X_y=True)
-y = np.vectorize(lambda x: 1 if x!=0 else x)(y)
-clf = LogisticRegression().fit(X, y)
-prediction = clf.predict([[5.3, 3.9, 1.2, 0.1], [1.3, 1.9, 0.2, 0.1], [11.3, 1.9, 0.2, 0.1]])
-print(prediction)

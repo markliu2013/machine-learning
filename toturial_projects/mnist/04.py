@@ -1,6 +1,5 @@
-import numpy as np
+# matplotlib 显示数字图片
 import pandas as pd
-from sklearn.linear_model import LogisticRegression
 import warnings
 warnings.filterwarnings('ignore')
 import matplotlib.pyplot as plt

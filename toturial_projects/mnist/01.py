@@ -1,3 +1,4 @@
+# 处理gz格式的数据
 import os
 import struct
 import numpy as np

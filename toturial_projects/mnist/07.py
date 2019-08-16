@@ -1,17 +1,22 @@
+# 使用sklearn svm
+import numpy as np
 import pandas as pd
-# from sklearn.linear_model import LinearRegression
-from linear_regression import LinearRegression
+from tensorflow import keras
+from sklearn import svm
 
 data_path = 'data/'
 df_train = pd.read_csv(data_path + "train.csv")
-X = df_train.iloc[:, 1:].to_numpy()
-y = df_train.iloc[:, 0].to_numpy()
-lg = LinearRegression().fit(X, y)
+X = df_train.iloc[:, 1:]
+y = df_train.iloc[:, 0]
+
+classifier = svm.SVC(gamma='scale', decision_function_shape='ovo')
+classifier.fit(X, y)
 
 df_test = pd.read_csv(data_path + "test.csv")
-predictions = lg.predict(df_test)
+predictions = classifier.predict(df_test)
+
 submission = pd.DataFrame({
     "ImageId": range(1, 1 + len(predictions)),
-    "Label": list(map(lambda x: int(round(x)), predictions))
+    "Label": predictions
 })
-submission.to_csv("mnist-submission9.csv", index=False)
+submission.to_csv("mnist-submission.csv", index=False)
