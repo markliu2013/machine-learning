@@ -11,9 +11,6 @@ df_test = pd.read_csv(data_path + "test.csv")
 train_images = df_train.iloc[:, 1:]
 train_labels = df_train.iloc[:, 0]
 
-train_images = train_images
-test_images = df_test
-
 # plt.figure(figsize=(10,10))
 # for i in range(25):
 #     plt.subplot(5,5,i+1)
@@ -37,10 +34,10 @@ model.compile(optimizer='adam',
 
 model.fit(train_images, train_labels, epochs=10)
 
-predictions = model.predict(test_images)
+predictions = model.predict(df_test)
 
 submission = pd.DataFrame({
     "ImageId": range(1, 1 + len(predictions)),
     "Label": list(map(np.argmax, predictions))
 })
-submission.to_csv("mnist-submission7.csv", index=False)
+submission.to_csv("mnist-submission.csv", index=False)
