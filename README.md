@@ -22,6 +22,7 @@
 * [深度学习神经网络中的梯度检查](https://blog.csdn.net/qq_33200967/article/details/79966371)
 * [绘制学习曲线——plot_learning_curve](https://blog.csdn.net/qq_36523839/article/details/82556932)
 * [详解 MNIST 数据集](https://blog.csdn.net/simple_the_best/article/details/75267863)
+* [感知机原理（Perceptron）](https://www.cnblogs.com/huangyc/p/9706575.html)
 
 # TensorFlow学习教程
 * [简单粗暴TensorFlow](https://tf.wiki/)
