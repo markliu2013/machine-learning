@@ -15,3 +15,14 @@ def sigmoid(x):
     sig = np.minimum(sig, 0.9999)  # Set upper bound
     sig = np.maximum(sig, 0.0001)  # Set lower bound
     return sig
+
+'''
+https://blog.csdn.net/qq_19707521/article/details/78479532
+'''
+def distance(x1, x2, l=2):
+    # 欧氏距离
+    # return np.sqrt(np.sum(np.square(x1 - x2)))
+    # 曼哈顿距离
+    # np.sum(np.abs(x1 - x2))
+    return np.linalg.norm(x1-x2, l)
+

@@ -23,6 +23,9 @@
 * [绘制学习曲线——plot_learning_curve](https://blog.csdn.net/qq_36523839/article/details/82556932)
 * [详解 MNIST 数据集](https://blog.csdn.net/simple_the_best/article/details/75267863)
 * [感知机原理（Perceptron）](https://www.cnblogs.com/huangyc/p/9706575.html)
+* [随机梯度下降（Stochastic gradient descent）和 批量梯度下降（Batch gradient descent ）的公式对比、实现对比](https://blog.csdn.net/lilyth_lilyth/article/details/8973972)
+* [带你理解朴素贝叶斯分类算法](https://zhuanlan.zhihu.com/p/26262151)
+* [反向传播算法（过程及公式推导）](https://www.cnblogs.com/wlzy/p/7751297.html)
 
 # TensorFlow学习教程
 * [简单粗暴TensorFlow](https://tf.wiki/)

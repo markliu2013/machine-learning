@@ -53,7 +53,7 @@ class LogisticRegression:
     '''
     def _get_loss(self, X, y):
         # return np.sum(list(map(self._loss_function, X, y)))
-        return reduce(lambda x, y: x + y, map(self._loss_function, X, y))
+        return np.divide(reduce(lambda x, y: x + y, map(self._loss_function, X, y)), len(X))
 
     '''
         处理单个样本，供整体gradient用

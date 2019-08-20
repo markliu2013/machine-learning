@@ -30,7 +30,7 @@ def test2():
     y = df_train.iloc[:, 0].to_numpy()
     lg = LinearRegression().fit(X, y)
 
-    df_test = pd.read_csv(data_path + "test.csv")
+    df_test = pd.read_csv(data_path + "test.csv").to_numpy()
     predictions = lg.predict(df_test)
     submission = pd.DataFrame({
         "ImageId": range(1, 1 + len(predictions)),
