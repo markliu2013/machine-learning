@@ -26,3 +26,5 @@ def distance(x1, x2, l=2):
     # np.sum(np.abs(x1 - x2))
     return np.linalg.norm(x1-x2, l)
 
+def relu(x):
+    return max(0, x)

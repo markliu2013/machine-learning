@@ -19,7 +19,6 @@ class KNN(object):
         return np.fromiter(map(self._predict_x, X), dtype=np.int)
 
     def _predict_x(self, x):
-        print(x)
         train_length = len(self.X)
         ## i个样本的距离
         distList = [0] * train_length
