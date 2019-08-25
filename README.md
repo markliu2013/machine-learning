@@ -46,3 +46,7 @@
 * [吴恩达coursera](https://study.163.com/course/courseLearn.htm?courseId=1004570029)
 * [【超智能体03】9分钟入门深度学习](https://www.bilibili.com/video/av32598744)
 
+# 计算机视觉
+* [从零开始一起学习SLAM | 为什么要用齐次坐标？](https://www.sohu.com/a/258317807_100007727)
+* [计算机视觉入门系列（一） 综述](https://blog.csdn.net/wangss9566/article/details/54618507)
+
