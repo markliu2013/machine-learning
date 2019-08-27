@@ -7,3 +7,5 @@ seaborn
 pyspark
 pymysql
 opencv-python
+nltk
+torch

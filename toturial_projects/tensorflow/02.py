@@ -20,7 +20,6 @@ test_y = Y[80:]
 
 import tensorflow.contrib.eager as tfe
 
-
 # 定义模型
 class Model(object):
     def __init__(self):
