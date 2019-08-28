@@ -14,3 +14,9 @@ https://towardsdatascience.com/object-detection-and-tracking-in-pytorch-b3cf1a69
 https://medium.com/object-detection-using-tensorflow-and-coco-pre/object-detection-using-tensorflow-and-coco-pre-trained-models-5d8386019a8
 https://github.com/tensorpack/tensorpack/tree/master/examples/FasterRCNN
 https://github.com/open-mmlab/mmdetection/
+
+
+https://www.dlology.com/blog/how-to-train-an-object-detection-model-easy-for-free/
+https://www.dlology.com/blog/how-to-train-an-object-detection-model-with-mmdetection/
+
+https://github.com/ming71/mmdetection-annotated/
