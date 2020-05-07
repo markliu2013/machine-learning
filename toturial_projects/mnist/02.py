@@ -1,3 +1,4 @@
+# 处理gz格式的数据
 import numpy as np
 import matplotlib.pyplot as plt
 

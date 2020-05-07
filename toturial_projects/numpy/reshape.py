@@ -1,9 +1,10 @@
 import numpy as np
 
-m = np.array([[1, 2, 3],
-              [5, 6, 7]])
+m = np.zeros(27)
 
-print(m.reshape(5, -1))
+print(m.reshape(3,3,3))
+print("-----")
+print(m.reshape(-1,3,3,3))
 
 # print(z.reshape(4, -1))
 # print(z.reshape(4, 3))

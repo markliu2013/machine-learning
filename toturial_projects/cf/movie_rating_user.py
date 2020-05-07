@@ -8,7 +8,7 @@ file = open(dist_path + "data.csv", 'r', encoding='UTF-8')
 
 ##读取data.csv中每行中除了名字的数据
 data = {}  ##存放每位用户评论的电影和评分
-for line in file.readlines()[1:100]:
+for line in file.readlines():
     # 注意这里不是readline()
     line = line.strip().split(',')
     # 如果字典中没有某位用户，则使用用户ID来创建这位用户
@@ -48,7 +48,7 @@ def top10_simliar(userID):
 
 
 RES = top10_simliar('1')
-print(RES)
+
 
 
 # 根据用户推荐电影给其他人

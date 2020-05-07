@@ -10,11 +10,11 @@ class LinearRegression:
         self.alpha = alpha
 
     def fit(self, X, y):
-        self._sgd(X, y)
+        self.weights = [1.0] * (len(X[0]) + 1)  # bias
+        self._bgd(X, y)
         return self
 
     def _sgd(self, X, y):
-        self.weights = [1.0] * (len(X[0]) + 1)  # bias
         loss = sys.float_info.max
         while loss != 0:
             pre_loss = loss
@@ -33,7 +33,6 @@ class LinearRegression:
         self.weights = np.subtract(self.weights, gradient_loss[0] * self.alpha)
 
     def _bgd(self, X, y):
-        self.weights = [1.0] * (len(X[0]) + 1)  # bias
         loss = sys.float_info.max
         # loss为0或者优化不到
         while loss != 0:
@@ -73,23 +72,5 @@ class LinearRegression:
 
     def predict(self, X):
         X_bais = np.hstack((X, np.ones((len(X), 1))))
+        # np.fromiter将map后的结果转为1-dimensional array
         return np.fromiter(map(lambda x: np.dot(x, self.weights), X_bais), dtype=np.double)
-
-
-X1 = np.array([[1], [2], [3], [4], [5]])
-y1 = np.array([4, 7, 10, 13, 16])
-
-X2 = np.array([[1], [2], [3], [4], [5]])
-y2 = np.array([2, 4, 6, 8, 10])
-
-X3 = np.array([[1, 1], [1, 2], [2, 2], [2, 3]])
-y3 = np.dot(X3, np.array([1, 2])) + 3
-
-reg = LinearRegression().fit(X1, y1)
-print(reg.predict(np.array([[9], [10]])))
-
-reg = reg.fit(X2, y2)
-print(reg.predict(np.array([[9], [10]])))
-
-reg = reg.fit(X3, y3)
-print(reg.predict(np.array([[3, 5]])))
