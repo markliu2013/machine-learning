@@ -7,5 +7,7 @@ X = np.array([[1], [2], [3], [4], [5]])
 y = np.array([4, 7, 10, 13, 16])
 
 reg = LinearRegression().fit(X, y)
+print(reg.coef_)
+print(round(reg.intercept_, 1))
 # 预测两条
 print(reg.predict(np.array([[9], [10]])))
